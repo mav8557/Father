@@ -1,5 +1,7 @@
 # Father
 
+<img src="http://vignette1.wikia.nocookie.net/jadensadventures/images/a/a8/Father.jpg/revision/latest/scale-to-width-down/382?cb=20140906183102">
+
 ## Overview
 
 ***father*** is a short LD_PRELOAD rootkit for Linux. It's designed to be used in a competition environment, and has various standard features:</br>
