@@ -9,6 +9,6 @@ _start:
 	mov ebx, fname
 	int 0x80
 
+	mov ebx, eax
 	mov eax, 1
-	mov ebx, 0
 	int 0x80
