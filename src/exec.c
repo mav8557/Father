@@ -1,5 +1,6 @@
 #include "father.h"
 
+int (*o_execve)(const char *, char *const argv[], char *const envp[]);
 int execve(const char *path, char *const argv[], char *const envp[]) {
 
 	#ifdef DEBUG

