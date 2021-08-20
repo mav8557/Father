@@ -6,6 +6,7 @@
 /* magic source port to trigger accept() backdoor */
 #define SOURCEPORT 54321
 /* time for timebomb() to go off, in seconds since 1970-01-01 */
+
 #define EPOCH_TIME 0000000000
 
 /* magic environment variable for Local Privilege Escalation (LPE) */
