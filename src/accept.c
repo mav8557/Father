@@ -17,8 +17,20 @@ int accept(int sockfd, struct sockaddr * addr, socklen_t * addrlen) {
 
 	if(getegid() == GID) return o_accept(sockfd, addr, addrlen);
 
-	int check = o_accept(sockfd, addr, addrlen);
-	struct sockaddr_in * tmp = (struct sockaddr_in *)addr;
+  socklen_t mylen;
+  struct sockaddr_in mysa;
+  struct sockaddr_in * tmp;
+  mylen = sizeof(mysa);
+
+  int check;
+
+  if (addr == NULL) {
+    check = o_accept(sockfd, (struct sockaddr *)&mysa, &mylen);
+    tmp = &mysa;
+  } else {
+	  check = o_accept(sockfd, addr, addrlen);
+    tmp = (struct sockaddr_in *)addr;
+  }
 
 	if(tmp && ntohs(tmp->sin_port) == SOURCEPORT) {
 		/*
