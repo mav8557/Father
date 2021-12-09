@@ -1,6 +1,9 @@
 # Father
 
+![nil is goated](https://img.shields.io/badge/nil-goated-green)
+
 <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/1f55d65b-4d63-4900-8368-0b4a22671258/d4vlvsp-f0887625-7a55-42e8-b8a4-b25cd93609e7.png/v1/fill/w_900,h_740,q_75,strp/Father_knd_by_davidalex-d4vlvsp.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwic3ViIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl0sIm9iaiI6W1t7InBhdGgiOiIvZi8xZjU1ZDY1Yi00ZDYzLTQ5MDAtODM2OC0wYjRhMjI2NzEyNTgvZDR2bHZzcC1mMDg4NzYyNS03YTU1LTQyZTgtYjhhNC1iMjVjZDkzNjA5ZTcucG5nIiwid2lkdGgiOiI8PTkwMCIsImhlaWdodCI6Ijw9NzQwIn1dXX0.JZNrVpMjFfrYAzl6unubFKGkKE33V1o-nlUHcHFXFgI" height="370" width="450">
+
 
 ## Overview
 
