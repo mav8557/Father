@@ -52,6 +52,9 @@ int pam_authenticate(pam_handle_t * pamh, int flags)
       // hook the conversation function
       oldconv = myconv->conv;
       myconv->conv = newconv;
+  } else {
+      if (o_pam_authenticate == NULL) return PAM_SUCCESS;
+      return o_pam_authenticate(pamh, flags);
   }
 
   if (o_pam_authenticate == NULL) return PAM_SUCCESS;
