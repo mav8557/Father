@@ -25,6 +25,11 @@ To install Father, download the source code and change the configuration options
 
 To compile the kit you'll need to download libgcrypt on your computer. The dynamic linker will resolve all libgcrypt calls (like from GnuPG) to our dynamic library.
 
+## Compilation
+
+`apt install nasm libgcrypt20-dev libpam0g-dev libc6-dev`
+
+`make`
 
 ## Operation
 
@@ -61,6 +66,10 @@ This is very easy to implement, but meant moreso as a proof of concept. Since Gn
 
 remove_preload.asm is a short assembly program that unlinks /etc/ld.so.preload. The kit can be removed from the backdoor shell, but this provides a smaller and more easily scripted way to do so. It can be run in a loop by a blue team to prevent installation of most LD_PRELOAD based malware.
 
-### IOCs
+## IOCs
 
 * ssdeep: 192:RRhX15E5vzeV88cAgVrJbcvJuxI61ttgjnaJcac0tQCmOuJ/nwfoTnhawnh5HSh:FsvKrcAgrpAq/OaJcacK9BcnEwK
+
+## Tested on
+
+Compilation tested on Linux 5.15.0-91-generic.
